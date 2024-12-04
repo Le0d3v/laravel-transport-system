@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class OperatorController extends Controller
 {
     public function index() {
-        $users = User::paginate(10);
+        $users = User::where("rol", "1")->paginate(10);
         return view("admin.operators.index", [
             "users" => $users
         ]);

@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\OperatorController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\TwoFactorController;
+use App\Http\Controllers\Auth\TwoFactorAuthController;
 
 Route::get("/", [PublicController::class, "index"])->name("index");
 
@@ -25,5 +27,8 @@ Route::middleware("auth")->group(function(){
     route::post("/operators/edit/{user}", [OperatorController::class, "update"])->name("operators.update");
     route::get("/operators/delete/{user}", [OperatorController::class, "destroy"])->name("operators.destroy");
 });
+
+Route::get('/two-factor/verify', [TwoFactorController::class, 'showVerifyForm'])->name('two-factor.verify');
+Route::post('/two-factor/verify', [TwoFactorController::class, 'verify'])->name('two-factor.verify.post');
 
 require __DIR__.'/auth.php';

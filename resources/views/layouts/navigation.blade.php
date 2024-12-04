@@ -47,6 +47,9 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('trucks')">
                             {{ __('Camiones') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('operators')" :active="request()->routeIs('users')">
+                            {{ __('Usuarios') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('operators')" :active="request()->routeIs('operators')">
                             {{ __('Operadores') }}
                         </x-nav-link>

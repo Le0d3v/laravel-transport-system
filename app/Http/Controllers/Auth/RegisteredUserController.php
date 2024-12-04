@@ -39,7 +39,8 @@ class RegisteredUserController extends Controller
                 "string", 
                 "min:10", 
                 "regex:/[1-9]/", 
-                'regex:/[!@#$%^&*(),.?":{}|<>]/'
+                'regex:/[!@#$%^&*(),.?":{}|<>]/',
+                ""
             ],
         ]);
 

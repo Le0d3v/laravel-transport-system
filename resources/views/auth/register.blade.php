@@ -1,20 +1,20 @@
 <x-guest-layout>
     <p class="text-center text-gray-700 text-2xl my-1 font-bold">Crear Cuenta</p>
     <p class="text-center text-gray-500 text-md mb-3">Registrese en Travel Up llenando el siguiente formulario</p>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" autocomplete="off">
         @csrf
 
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Nombre')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Incluir mínimo un apellido"/>
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus placeholder="Incluir mínimo un apellido"/>
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Correo Elecrtónico')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="ejemplo@correo.com"/>
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required  placeholder="ejemplo@correo.com"/>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -25,7 +25,7 @@
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="new-password"
+                            required 
                             placeholder="Incluir números y carácteres especiales"
                             />
 
@@ -38,7 +38,7 @@
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
-                            name="password_confirmation" required autocomplete="new-password" 
+                            name="password_confirmation" required 
                             placeholder="Su contraseña ingresada previamente"
                             />
 
