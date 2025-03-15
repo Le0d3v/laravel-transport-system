@@ -3,7 +3,7 @@
     <p class="text-center text-gray-700 text-ms my-3 font-bold">
         Reestablecer Contraseña
     </p>
-    <form method="POST" action="{{ route('password.store') }}">
+    <form method="POST" action="{{ route('password.store') }}" autocomplete="off">
         @csrf
 
         <!-- Password Reset Token -->

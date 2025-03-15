@@ -56,9 +56,6 @@
                         <x-nav-link :href="route('dashboard')" >
                             {{ __('Conductores') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" >
-                            {{ __('Camiones') }}
-                        </x-nav-link>
                     @endif
                 </div>
             </div>
