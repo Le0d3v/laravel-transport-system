@@ -13,4 +13,8 @@ class PublicController extends Controller
     public function about() {
         return view("public.about");
     }
+
+    public function terminals() {
+        return view("public.terminals");
+    }
 }

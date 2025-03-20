@@ -1,4 +1,4 @@
-<div class="w-full p-3 bg-gray-300 flex justify-between items-center">
+<div class="w-full p-3 bg-gray-100 flex justify-between items-center shadow-md">
   <a href="/">
     <img src="{{asset("img/logo.png")}}" alt="imagen-logo" width="70">
   </a>
@@ -9,7 +9,7 @@
     <a href="{{route("about")}}" class="hover:text-gray-500 font-outtfit">
       Sobre Nosotros
     </a>
-    <a href="#" class="hover:text-gray-500 font-outtfit">
+    <a href="{{route("terminals")}}" class="hover:text-gray-500 font-outtfit">
       Terminales
     </a>
   </nav>

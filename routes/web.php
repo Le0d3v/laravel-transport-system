@@ -14,6 +14,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get("/about", [PublicController::class, "about"])->name("about");
+Route::get("/terminals", [PublicController::class, "terminals"])->name("terminals");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

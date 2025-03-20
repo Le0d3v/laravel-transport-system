@@ -10,7 +10,7 @@
       <a href="{{route("about")}}" class="text-white hover:text-gray-200 transition font-outtfit">
         Sobre Nosotros
       </a>
-      <a href="/" class="text-white hover:text-gray-200 transition font-outtfit">
+      <a href="{{route("terminals")}}" class="text-white hover:text-gray-200 transition font-outtfit">
         Terminales
       </a>
     </nav>

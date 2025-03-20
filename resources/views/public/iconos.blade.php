@@ -11,7 +11,7 @@
         Viajes Seguros
       </h2>
       <p class="text-sm text-center">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum doloribus esse modi dicta earum voluptas pariatur obcaecati eos. Nemo, accusamus exercitationem. Maxime quod, fugit inventore doloremque nisi expedita accusamus laborum?
+        Nos dedicamos a garantizar que cada aspecto de tu viaje esté protegido. Trabajamos con proveedores confiables y verificamos rigurosamente todas las opciones que ofrecemos.
       </p>
     </div>
     <div class="md:mt-0 mt-5">
@@ -22,7 +22,7 @@
         Precios Accesibles
       </h2>
       <p class="text-sm text-center">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum doloribus esse modi dicta earum voluptas pariatur obcaecati eos. Nemo, accusamus exercitationem. Maxime quod, fugit inventore doloremque nisi expedita accusamus laborum?
+        Todos nuestros precios son claros y detallados, lo que te permite entender exactamente por qué pagas lo que pagas.
       </p>
     </div>
     <div class="md:mt-0 mt-5">
@@ -30,10 +30,10 @@
         <i class="fa-solid fa-face-smile text-8xl mx-auto text-blue-500"></i>
       </div>
       <h2 class="text-xl font-outtfit font-bold text-blue-500 text-center mt-5">
-        Experienia Única
+        Atención al Cliente
       </h2>
       <p class="text-sm text-center">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum doloribus esse modi dicta earum voluptas pariatur obcaecati eos. Nemo, accusamus exercitationem. Maxime quod, fugit inventore doloremque nisi expedita accusamus laborum?
+        Nuestro equipo de atención al cliente está capacitado para ofrecerte un servicio personalizado. Escuchamos tus necesidades y preferencias para ayudarte a planificar el viaje perfecto.
       </p>
     </div>
   </div>

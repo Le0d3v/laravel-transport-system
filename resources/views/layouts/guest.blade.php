@@ -31,5 +31,6 @@
                 </div>
             </div>
         </div>
+        @include("components.loader")
     </body>
 </html>
