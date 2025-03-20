@@ -1,7 +1,7 @@
-<div class="w-full bg-blue-500 py-5 px-16">
+<div class="w-full bg-blue-500 py-5 px-16 mt-16">
   <div class="flex justify-between gap-10 mb-5">
     <div class="w-1/2">
-      <h1 class="text-white text-2xl font-bold">
+      <h1 class="text-white text-3xl font-bold font-outtfit">
         Busify
       </h1>
       <p class="text-white">
@@ -38,7 +38,13 @@
   <div class="flex gap-16 mt-5">
     <div class="w-1/3">
       <p class="text-white text-sm">
-        2025 Autobuses en todo México. S.A de C.V. Todos los derechos reservados. Boletos de Autobús, viaja por todo México. Diseñado y Desarrollado por InnovaTech v.2.0.1
+        2025 Autobuses en todo México. S.A de C.V. 
+      </p>
+      <p class="text-white text-sm">
+        Todos los derechos reservados. Boletos de Autobús, viaja por todo México.
+      </pcl>
+      <p class="text-white text-sm">
+        Diseñado y Desarrollado por InnovaTech v.2.0.1
       </p>
     </div>
     <div class="flex justify-between w-2/3">

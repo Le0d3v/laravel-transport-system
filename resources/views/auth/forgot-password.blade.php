@@ -29,7 +29,9 @@
                     {{ __('¿Ya tienes una cuenta? Iniciar Sesión') }}
                 </a>
                 @endif
-                <a class="text-sm text-gray-600 rounded-md hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                <a 
+                    class="text-sm text-gray-600 rounded-md hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" 
+                    href="{{route("login", ['form' => 'register'])}}">
                     {{ __('Crear una Cuenta') }}
                 </a>
         </div>

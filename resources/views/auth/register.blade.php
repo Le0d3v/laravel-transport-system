@@ -1,6 +1,6 @@
 <x-guest-layout>
     <p class="text-center text-gray-700 text-2xl my-1 font-bold">Crear Cuenta</p>
-    <p class="text-center text-gray-500 text-md mb-3">Registrese en Travel Up llenando el siguiente formulario</p>
+    <p class="text-center text-gray-500 text-md mb-3">Registrese en Busify llenando el siguiente formulario</p>
     <form method="POST" action="{{ route('register') }}" autocomplete="off">
         @csrf
 
