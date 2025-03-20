@@ -7,7 +7,7 @@
       <a href="/" class="text-white hover:text-gray-200 transition font-outtfit">
         Boletos de Autobus
       </a>
-      <a href="/" class="text-white hover:text-gray-200 transition font-outtfit">
+      <a href="{{route("about")}}" class="text-white hover:text-gray-200 transition font-outtfit">
         Sobre Nosotros
       </a>
       <a href="/" class="text-white hover:text-gray-200 transition font-outtfit">

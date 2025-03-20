@@ -4,7 +4,7 @@
       <h1 class="text-white text-3xl font-bold font-outtfit">
         Busify
       </h1>
-      <p class="text-white">
+      <p class="text-white mt-5">
         Hola ipsum, dolor sit amet consectetur adipisicing elit. Vero aliquam laudantium autem ab. Molestias nulla soluta sapiente, error mollitia quisquam perferendis, eos voluptates suscipit eligendi libero cupiditate perspiciatis expedita nihil?
       </p>
     </div>
