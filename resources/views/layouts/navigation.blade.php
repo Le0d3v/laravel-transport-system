@@ -17,7 +17,7 @@
                             {{ __('Inicio') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')">
-                            {{ __('Viajes') }}
+                            {{ __('Viajes Disponibles') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')">
                             {{ __('Mis viajes') }}
@@ -41,11 +41,11 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('terminals')">
                             {{ __('Teminales') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" >
-                            {{ __('Rutas') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('trucks')">
+                        <x-nav-link :href="route('trucks.index')" :active="request()->routeIs('trucks')">
                             {{ __('Camiones') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('drivers.index')" >
+                            {{ __('Conductores') }}
                         </x-nav-link>
                         <x-nav-link :href="route('operators')" :active="request()->routeIs('users')">
                             {{ __('Usuarios') }}
@@ -53,8 +53,8 @@
                         <x-nav-link :href="route('operators')" :active="request()->routeIs('operators')">
                             {{ __('Operadores') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" >
-                            {{ __('Conductores') }}
+                        <x-nav-link :href="route('operators')" :active="request()->routeIs('operators')">
+                            {{ __('Historial') }}
                         </x-nav-link>
                     @endif
                 </div>
