@@ -36,6 +36,8 @@ Route::middleware("auth")->group(function(){
 // Trucks
 Route::middleware("auth")->group(function(){
     route::get("/trucks", [OperatorController::class, "index"])->name("trucks.index");
+    route::get("/trucks/create", [OperatorController::class, "create"])->name("trucks.create");
+    route::post("/trucks/create", [OperatorController::class, "store"])->name("trucks.store");
 });
 
 // Drivers
