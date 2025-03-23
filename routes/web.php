@@ -6,6 +6,7 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\TerminalController;
 use App\Http\Controllers\TwoFactorController;
 use App\Http\Controllers\Auth\TwoFactorAuthController;
 
@@ -43,6 +44,17 @@ Route::middleware("auth")->group(function(){
     route::post("/trucks/edit/{id}", [TruckController::class, "update"])->name("trucks.update");
     route::get("/trucks/delete/{id}", [TruckController::class, "destroy"])->name("trucks.destroy");
 });
+
+// Terminals
+Route::middleware("auth")->group(function(){
+    route::get("/terminals", [TerminalController::class, "index"])->name("terminals.index");
+    route::get("/terminals/create", [TerminalController::class, "create"])->name("terminals.create");
+    route::post("/terminals/create", [TerminalController::class, "store"])->name("terminals.store");
+    route::get("/terminals/edit/{id}", [TerminalController::class, "edit"])->name("terminals.edit");
+    route::post("/terminals/edit/{id}", [TerminalController::class, "update"])->name("terminals.update");
+    route::get("/terminals/delete/{id}", [TerminalController::class, "destroy"])->name("terminals.destroy");
+});
+
 
 // Drivers
 Route::middleware("auth")->group(function(){

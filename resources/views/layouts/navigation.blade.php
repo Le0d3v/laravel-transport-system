@@ -38,7 +38,7 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('terminals')">
+                        <x-nav-link :href="route('terminals.index')" :active="request()->routeIs('terminals')">
                             {{ __('Teminales') }}
                         </x-nav-link>
                         <x-nav-link :href="route('trucks.index')" :active="request()->routeIs('trucks')">
