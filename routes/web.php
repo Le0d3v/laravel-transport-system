@@ -44,8 +44,8 @@ Route::middleware("auth")->group(function(){
     route::get("/drivers/create", [DriverController::class, "create"])->name("drivers.create");
     route::post("/drivers/create", [DriverController::class, "store"])->name("drivers.store");
     route::get("/drivers/edit/{driver}", [DriverController::class, "edit"])->name("drivers.edit");
-    route::post("/drivers/edit/{driver}", [DriverController::class, "update"])->name("drivers.update");
-    route::post("/drivers/edit/{driver}", [DriverController::class, "destroy"])->name("drivers.destroy");
+    route::get("/drivers/delete/{id}", [DriverController::class, "destroy"])->name("drivers.destroy");
+    route::post("/drivers/edit/{driver}", [DriverController::class, "update"])->name("driver.change");
 });
 
 

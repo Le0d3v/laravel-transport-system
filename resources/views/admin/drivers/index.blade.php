@@ -15,6 +15,11 @@
                       Nuevo Conductor
                     </p>
                   </a>
+                  @if (count($drivers) === 0)
+                    <p class="text-center">
+                      Sin registros
+                    </p>
+                  @endif
                   <div class="mt-5 w-full">
                     <table class="w-full">
                       <thead class="w-full">
@@ -28,30 +33,32 @@
                       </thead>
                       <tbody>
                         @foreach ($drivers as $driver)
-                          <tr class="p-6 border-b-2">
-                            <td class="text-center">{{$driver->id}}</td>
-                            <td class="text-center">{{$driver->name}}</td>
-                            <td class="text-center">{{$driver->last_name}}</td>
-                            <td class="text-center">{{$driver->telephone}}</td>
-                            <td class="text-center">{{$driver->email}}</td>
-                            <td class="text-center">
-                              @if ($driver->status === 1)
-                                {{"Activo"}}
-                              @else
-                                {{"Inactivo"}}
-                              @endif
-                            </td>
-                            <td class="text-center">
-                              <div class="flex justify-center gap-2">
-                                <a href="{{route("drivers.edit", $driver)}}" class="p-2 bg-green-500 text-white rounded cursor-pointer hover:bg-green-600">
-                                  Editar
-                                </a>
-                                <a href="{{route("drivers.destroy", $driver)}}" class="p-2 bg-red-500 text-white rounded cursor-pointer hover:bg-red-600">
-                                  Eliminar
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
+                          <div class="p-3">
+                            <tr class="p-3 border-b-2 mb-2">
+                              <td class="text-center p-2">{{$driver->id}}</td>
+                              <td class="text-center p-2">{{$driver->name}}</td>
+                              <td class="text-center p-2">{{$driver->last_name}}</td>
+                              <td class="text-center p-2">{{$driver->telephone}}</td>
+                              <td class="text-center p-2">{{$driver->email}}</td>
+                              <td class="text-center p-2">
+                                @if ($driver->status === 1)
+                                  {{"Activo"}}
+                                @else
+                                  {{"Inactivo"}}
+                                @endif
+                              </td>
+                              <td class="text-center p-2">
+                                <div class="flex justify-center gap-2">
+                                  <a href="{{route("drivers.edit", $driver)}}" class="p-2 bg-green-500 text-white rounded cursor-pointer hover:bg-green-600">
+                                    Editar
+                                  </a>
+                                  <a href="{{route("drivers.destroy", $driver->id)}}" class="p-2 bg-red-500 text-white rounded cursor-pointer hover:bg-red-600">
+                                    Eliminar
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+                          </div>
                         @endforeach
                       </tbody>
                     </table>
