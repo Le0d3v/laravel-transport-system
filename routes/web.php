@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TruckController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
@@ -35,9 +36,12 @@ Route::middleware("auth")->group(function(){
 
 // Trucks
 Route::middleware("auth")->group(function(){
-    route::get("/trucks", [OperatorController::class, "index"])->name("trucks.index");
-    route::get("/trucks/create", [OperatorController::class, "create"])->name("trucks.create");
-    route::post("/trucks/create", [OperatorController::class, "store"])->name("trucks.store");
+    route::get("/trucks", [TruckController::class, "index"])->name("trucks.index");
+    route::get("/trucks/create", [TruckController::class, "create"])->name("trucks.create");
+    route::post("/trucks/create", [TruckController::class, "store"])->name("trucks.store");
+    route::get("/trucks/edit/{id}", [TruckController::class, "edit"])->name("trucks.edit");
+    route::post("/trucks/edit/{id}", [TruckController::class, "update"])->name("trucks.update");
+    route::get("/trucks/delete/{id}", [TruckController::class, "destroy"])->name("trucks.destroy");
 });
 
 // Drivers
