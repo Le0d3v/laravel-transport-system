@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-black antialiased">
-        <div class="w-full h-screen flex flex-col md:flex-row">
+        <div class="w-full h-auto flex flex-col md:flex-row overflow-y-auto">
             <div class="min-h-screen flex flex-col sm:justify-center items-center sm:pt-0 bg-gray-100 md:w-1/2 w-full p-10">
                 <img src="{{asset("login.svg")}}" alt="Imagen Login">
             </div>
@@ -27,7 +27,7 @@
                     </a>
                 </div>
     
-                <div class="w-full sm:max-w-md mt-3 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                <div class="w-full sm:max-w-md mt-3 px-6 py-4 bg-white shadow-md m-0 sm:rounded-lg">
                     {{ $slot }}
                 </div>
             </div>

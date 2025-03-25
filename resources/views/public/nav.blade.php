@@ -9,7 +9,7 @@
     <a href="{{route("about")}}" class="hover:text-gray-500 font-outtfit">
       Sobre Nosotros
     </a>
-    <a href="{{route("terminals")}}" class="hover:text-gray-500 font-outtfit">
+    <a href="{{route("public.terminals")}}" class="hover:text-gray-500 font-outtfit">
       Terminales
     </a>
   </nav>

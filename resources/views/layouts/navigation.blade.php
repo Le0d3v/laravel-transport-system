@@ -28,10 +28,13 @@
                             {{ __('Inicio') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('terminals')">
-                            {{ __('Teminales') }}
+                            {{ __('viajes') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('trucks')">
-                            {{ __('Camiones') }}
+                            {{ __('Pagos') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('trucks')">
+                            {{ __('Mensajería') }}
                         </x-nav-link>
                     @endif
                     @if (Auth::user()->rol == "2")

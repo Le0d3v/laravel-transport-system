@@ -3,14 +3,18 @@
         <div id="login-form" class="auth-form hidden">
             <p class="text-center text-gray-700 text-2xl my-3 font-bold">Iniciar Sesión</p>
             <p class="text-center text-gray-500 text-md mb-3">Inicie sesión con su Correo Electrónico y Contraseña</p>
+            @if ($errors->has('g-recaptcha-response'))
+                <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+            @endif
+
             <x-auth-session-status class="mb-4" :status="session('status')" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
             <form method="POST" action="{{ route('login') }}" autocomplete="off">
                 @csrf
                 <div>
                     <x-input-label for="email" :value="__('Correo Electrónico')" />
                     <x-text-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus placeholder="Ejemplo@gmail.com"/>
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 <div class="mt-4">
                     <x-input-label for="password" :value="__('Contraseña (Min. 10 caracteres)')" />
@@ -23,6 +27,14 @@
                         <span class="text-sm text-gray-600 ms-2">{{ __('Mantener mi sesión abierta') }}</span>
                     </label>
                 </div>
+
+                <div class="mt-2">
+                    {!! NoCaptcha::renderJs() !!}
+                    <div class="form-group">
+                        {!! NoCaptcha::display() !!}
+                    </div>
+                </div>
+
                 <div class="mt-1 flex justify-end">
                     <x-primary-button class="ms-3 p-4">{{ __('Iniciar Sesión') }}</x-primary-button>
                 </div>
@@ -72,6 +84,12 @@
                     <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required placeholder="Su contraseña ingresada previamente"/>
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
+                <!-- Agregar reCAPTCHA al formulario de registro -->
+                {!! NoCaptcha::renderJs() !!}
+                <div class="form-group my-5">
+                    {!! NoCaptcha::display() !!}
+                </div>
+                
                 <div class="flex items-center justify-end mt-4">
                     <a 
                         class="text-sm text-gray-600 hover:text-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" 

@@ -10,13 +10,15 @@ use App\Http\Controllers\TerminalController;
 use App\Http\Controllers\TwoFactorController;
 use App\Http\Controllers\Auth\TwoFactorAuthController;
 
-// Public
-Route::get("/", [PublicController::class, "index"])->name("index");
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get("/about", [PublicController::class, "about"])->name("about");
-Route::get("/terminals", [PublicController::class, "terminals"])->name("terminals");
+
+// Public
+Route::get("/", [PublicController::class, "index"])->name("index");
+Route::get("/nosotros", [PublicController::class, "about"])->name("about");
+Route::get("/terminales", [PublicController::class, "terminals"])->name("public.terminals");
 
 // Auth
 Route::middleware('auth')->group(function () {
@@ -33,6 +35,16 @@ Route::middleware("auth")->group(function(){
     route::get("/operators/edit/{user}", [OperatorController::class, "edit"])->name("operators.edit");
     route::post("/operators/edit/{user}", [OperatorController::class, "update"])->name("operators.update");
     route::get("/operators/delete/{user}", [OperatorController::class, "destroy"])->name("operators.destroy");
+});
+
+// Trips
+Route::middleware("auth")->group(function(){
+    route::get("/trips", [OperatorController::class, "index"])->name("trips");
+    route::get("/trips/create", [OperatorController::class, "create"])->name("trips.create");
+    route::post("/trips/create", [OperatorController::class, "store"])->name("trips.store");
+    route::get("/trips/edit/{id}", [OperatorController::class, "edit"])->name("trips.edit");
+    route::post("/trips/edit/{id}", [OperatorController::class, "update"])->name("trips.update");
+    route::get("/trips/delete/{id}", [OperatorController::class, "destroy"])->name("operators.destroy");
 });
 
 // Trucks
