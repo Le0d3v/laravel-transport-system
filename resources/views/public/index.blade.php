@@ -78,10 +78,11 @@
                   <option value="0" disabled selected>
                      -- Seleccione -- 
                   </option>
-                  <option value="1">Veracruz</option>
-                  <option value="1">México</option>
-                  <option value="1">Puebla</option>
-                  <option value="1">Guanajuato</option>
+                  @foreach ($terminals as $terminal)
+                    <option value="{{$terminal->id}}">
+                      {{$terminal->name}}
+                    </option>
+                  @endforeach
                 </select>
               </div>
             </div>

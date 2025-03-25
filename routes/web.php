@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TripController;
 use App\Http\Controllers\TruckController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\PublicController;
@@ -39,12 +40,12 @@ Route::middleware("auth")->group(function(){
 
 // Trips
 Route::middleware("auth")->group(function(){
-    route::get("/trips", [OperatorController::class, "index"])->name("trips");
-    route::get("/trips/create", [OperatorController::class, "create"])->name("trips.create");
-    route::post("/trips/create", [OperatorController::class, "store"])->name("trips.store");
-    route::get("/trips/edit/{id}", [OperatorController::class, "edit"])->name("trips.edit");
-    route::post("/trips/edit/{id}", [OperatorController::class, "update"])->name("trips.update");
-    route::get("/trips/delete/{id}", [OperatorController::class, "destroy"])->name("operators.destroy");
+    route::get("/trips", [TripController::class, "index"])->name("trips");
+    route::get("/trips/create", [TripController::class, "create"])->name("trips.create");
+    route::post("/trips/create", [TripController::class, "store"])->name("trips.store");
+    route::get("/trips/edit/{id}", [TripController::class, "edit"])->name("trips.edit");
+    route::post("/trips/edit/{id}", [TripController::class, "update"])->name("trips.update");
+    route::get("/trips/delete/{id}", [TripController::class, "destroy"])->name("operators.destroy");
 });
 
 // Trucks
