@@ -16,7 +16,7 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')">
+                        <x-nav-link :href="route('client.trips.index')" :active="request()->routeIs('client.trips.index')">
                             {{ __('Viajes Disponibles') }}
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')">

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\TruckController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
@@ -80,6 +81,8 @@ Route::middleware("auth")->group(function(){
 });
 
 // Client
+Route::get("/dashboard/show-trips", [ClientController::class, "index"])->name("client.trips.index");
+route::get("/dashboard/buy-trip/{id}", [ClientController::class, "buy"])->name("client.trips.buy");
 
 // Apis
 Route::post('/buscar-viaje', [APIController::class, 'searchTrip'])->name('search.trip');
