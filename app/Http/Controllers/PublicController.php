@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
     public function index() {
-        $terminals = Terminal::where("status" === "1")->get();
+        $terminals = Terminal::all();
         return view("public.index", [
-            "terminas" => $terminals
+            "terminals" => $terminals
         ]);
     }
 

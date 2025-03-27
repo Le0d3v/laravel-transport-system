@@ -15,4 +15,8 @@ class Truck extends Model
         "status",
         "driver_id"
     ];
+
+    public function driver() {
+        return $this->belongsTo(Driver::class);
+    }
 }

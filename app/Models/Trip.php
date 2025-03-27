@@ -17,4 +17,20 @@ class Trip extends Model
         "seatings",
         "availables"
     ];
+
+
+
+    public function originTerminal()
+    {
+        return $this->belongsTo(Terminal::class, 'origin', 'id');
+    }
+
+    public function destinationTerminal()
+    {
+        return $this->belongsTo(Terminal::class, 'destination', 'id');
+    }
+
+    public function truck() {
+        return $this->belongsTo(Truck::class);  
+    }
 }

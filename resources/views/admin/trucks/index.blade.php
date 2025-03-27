@@ -9,10 +9,10 @@
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
               <div class="p-6 text-gray-900">
-                  <a href="{{route("trucks.create")}}" class="p-3 text-blue-500 rounded-lg hover:bg-blue-800 hover:text-white transition border-2 border-solid border-blue-500 cursor-hover flex gap-3 items-center w-48">
+                  <a href="{{route("trucks.create")}}" class="p-3 text-blue-500 rounded-lg hover:bg-blue-800 hover:text-white transition border-2 border-solid border-blue-500 cursor-hover flex gap-3 items-center w-44">
                     <i class="fa-solid fa-circle-plus"></i>
                     <p>
-                      Nuevo Conductor
+                      Nuevo Camión
                     </p>
                   </a>
                   @if (count($trucks) === 0)

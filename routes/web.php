@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\APIController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\TruckController;
 use App\Http\Controllers\DriverController;
@@ -45,7 +46,7 @@ Route::middleware("auth")->group(function(){
     route::post("/trips/create", [TripController::class, "store"])->name("trips.store");
     route::get("/trips/edit/{id}", [TripController::class, "edit"])->name("trips.edit");
     route::post("/trips/edit/{id}", [TripController::class, "update"])->name("trips.update");
-    route::get("/trips/delete/{id}", [TripController::class, "destroy"])->name("operators.destroy");
+    route::get("/trips/delete/{id}", [TripController::class, "destroy"])->name("trips.destroy");
 });
 
 // Trucks
@@ -68,7 +69,6 @@ Route::middleware("auth")->group(function(){
     route::get("/terminals/delete/{id}", [TerminalController::class, "destroy"])->name("terminals.destroy");
 });
 
-
 // Drivers
 Route::middleware("auth")->group(function(){
     route::get("/drivers", [DriverController::class, "index"])->name("drivers.index");
@@ -78,6 +78,11 @@ Route::middleware("auth")->group(function(){
     route::get("/drivers/delete/{id}", [DriverController::class, "destroy"])->name("drivers.destroy");
     route::post("/drivers/edit/{driver}", [DriverController::class, "update"])->name("driver.change");
 });
+
+// Client
+
+// Apis
+Route::post('/buscar-viaje', [APIController::class, 'searchTrip'])->name('search.trip');
 
 
 Route::get('/two-factor/verify', [TwoFactorController::class, 'showVerifyForm'])->name('two-factor.verify');

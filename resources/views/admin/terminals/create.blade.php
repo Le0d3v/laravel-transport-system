@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          {{ __('Camiones') }}
+          {{ __('Registrar Nueva Terminal') }}
       </h2>
   </x-slot>
 
@@ -9,7 +9,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <a 
         href="{{route("terminals.index")}}" 
-        class="p-3 text-blue-500 rounded-lg hover:bg-blue-800 hover:text-white transition border-2 border-solid border-blue-500 cursor-hover flex gap-3 items-center w-32 mb-3"
+        class="p-3 text-blue-500 rounded-lg hover:bg-blue-800 hover:text-white transition border-2 border-solid border-blue-500 cursor-hover flex gap-1 items-center w-24 mb-3"
       >
         <i class="fa-solid fa-rotate-left"></i>
         <p>
@@ -83,12 +83,12 @@
               </div>
             </div>
             <div class="flex gap-10 px-5 py-3 w-full">
-              <div class="flex gap-10 justify-end w-full mt-5">
+              <div class="flex justify-end w-full mt-5">
                 <button 
                   type="submit" 
                   class="p-3 text-blue-500 rounded-lg hover:bg-blue-800 hover:text-white transition border-2 border-solid border-blue-500 cursor-hover flex gap-3 items-center w-32 mb-3"
                 >
-                  <i class="fa-solid fa-rotate-left"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
                   Guardar
                 </button>
               </div>

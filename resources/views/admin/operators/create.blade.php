@@ -58,9 +58,13 @@
                       </div>
               
                       <div class="flex items-center justify-end mt-4">
-                          <x-primary-button class="ms-4">
-                              {{ __('Guardar Operador') }}
-                          </x-primary-button>
+                            <button 
+                            type="submit" 
+                            class="p-3 text-blue-500 rounded-lg hover:bg-blue-800 hover:text-white transition border-2 border-solid border-blue-500 cursor-hover flex gap-3 items-center w-32 mb-3"
+                            >
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Guardar
+                            </button>
                       </div>
                     </form>
                 </div>

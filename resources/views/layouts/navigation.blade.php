@@ -41,10 +41,13 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Inicio') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('terminals.index')" :active="request()->routeIs('terminals')">
+                        <x-nav-link 
+                            :href="route('terminals.index')" 
+                            :active="request()->routeIs('terminals.index|terminals.create|terminals.edit')"
+                        >
                             {{ __('Teminales') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('trucks.index')" :active="request()->routeIs('trucks')">
+                        <x-nav-link :href="route('trucks.index')" :active="request()->routeIs('trucks.index|trucks.create|trucks.edit')">
                             {{ __('Camiones') }}
                         </x-nav-link>
                         <x-nav-link :href="route('drivers.index')" >
@@ -55,9 +58,6 @@
                         </x-nav-link>
                         <x-nav-link :href="route('operators')" :active="request()->routeIs('operators')">
                             {{ __('Operadores') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('operators')" :active="request()->routeIs('operators')">
-                            {{ __('Historial') }}
                         </x-nav-link>
                     @endif
                 </div>
