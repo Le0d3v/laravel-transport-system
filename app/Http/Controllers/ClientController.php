@@ -16,4 +16,11 @@ class ClientController extends Controller
             "terminals" => $terminals
         ]); 
     }
+
+    public function buy($id) {
+        $trip = Trip::find($id);
+        return view("user.trips.buy", [
+            "trip" => $trip
+        ]);
+    }
 }

@@ -86,6 +86,7 @@ route::get("/dashboard/buy-trip/{id}", [ClientController::class, "buy"])->name("
 
 // Apis
 Route::post('/buscar-viaje', [APIController::class, 'searchTrip'])->name('search.trip');
+route::get("/get-trip/{id}", [APIController::class, "getTrip"])->name("trips.trip.get");
 
 
 Route::get('/two-factor/verify', [TwoFactorController::class, 'showVerifyForm'])->name('two-factor.verify');

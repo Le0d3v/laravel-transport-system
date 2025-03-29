@@ -19,6 +19,9 @@ class PublicController extends Controller
     }
 
     public function terminals() {
-        return view("public.terminals");
+        $terminals = Terminal::all();
+        return view("public.terminals", [
+            "terminals" => $terminals
+        ]);
     }
 }
