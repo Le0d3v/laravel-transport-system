@@ -40,22 +40,24 @@ class APIController extends Controller
     }       
 
     public function getTrip($id) {
-        $viaje = Trip::with(['originTerminal', 'destinationTerminal'])
+        $trip = Trip::with(['originTerminal', 'destinationTerminal'])
             ->findOrFail($id);
 
-        // Retornar la información del viaje
+        // Retornar la información del trip
         return response()->json([
-            'id' => $viaje->id,
+            'id' => $trip->id,
             'origin' => [
-                'name' => $viaje->originTerminal->name,
-                'lat' => $viaje->originTerminal->lat,
-                'lng' => $viaje->originTerminal->lng,
+                'name' => $trip->originTerminal->name,
+                'lat' => $trip->originTerminal->lat,
+                'lng' => $trip->originTerminal->lng,
             ],
             'destination' => [
-                'name' => $viaje->destinationTerminal->name,
-                'lat' => $viaje->destinationTerminal->lat,
-                'lng' => $viaje->destinationTerminal->lng,
-            ]
+                'name' => $trip->destinationTerminal->name,
+                'lat' => $trip->destinationTerminal->lat,
+                'lng' => $trip->destinationTerminal->lng,
+            ], 
+            'output_date' => $trip->output_date,
+            'output_time' => $trip->output_time
         ]);
              
     }

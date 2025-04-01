@@ -88,78 +88,78 @@
               </div>
               <div>
                 <div class="p-6 text-gray-900">
-                    @if (count($trips) === 0)
-                      <p class="text-center">
-                        Sin registros
-                      </p>
-                    @else
                       <h1 class="text-center text-3xl font-bold text-blue-500 font-outtfit mb-1">
-                        Viajes Disponibles
+                        Viajes Disponibles Hoy
                         <hr>
                       </h1>
-                      <div class="overflow-y-scroll h-96 p-1 bg-white rounded-lg shadow-md">
-                        @foreach ($trips as $trip)
-                          <div class="w-full p-5 border-2 border-solid border-blue-500 flex gap-5 rounded-lg my-5">
-                            <div class="w-2/3">
-                              <h1 class="text-2xl font-bold text-blue-500 font-outtfit">
-                                Datos del Viaje
-                              </h1>
-                              <div class="flex gap-10 mt-2">
-                                <p>
-                                  <span class="font-bold text-blue-500 font-outtfit">Origen: </span>
-                                  <br>
-                                  {{$trip->originTerminal->name}}
-                                </p>
-                                <p>
-                                  <span class="font-bold text-blue-500 font-outtfit">Destino: </span>
-                                  <br>
-                                  {{$trip->destinationTerminal->name}}
-                                </p>
-                              </div>
-                              <div class="flex gap-10 mt-2">
-                                <p>
-                                  <span class="font-bold text-blue-500 font-outtfit">Fecha de Salida: </span>
-                                  <br>
-                                  {{$trip->output_date}}
-                                </p>
-                                <p>
-                                  <span class="font-bold text-blue-500 font-outtfit">Hora de salida: </span>
-                                  <br>
-                                  {{$trip->output_time}}
-                                </p>
-                              </div>
-                              <div class="flex gap-10 mt-2">
-                                <p>
-                                  <span class="font-bold text-blue-500 font-outtfit">Fecha de Llegada: </span>
-                                  <br>
-                                  {{$trip->arrival_date}}
-                                </p>
-                                <p>
-                                  <span class="font-bold text-blue-500 font-outtfit">Hora de Llegada: </span>
-                                  <br>
-                                  {{$trip->arrival_time}}
-                                </p>
-                              </div>
-                            </div>
-                            <div class="w-1/3 flex justify-center">
-                              <div>
-                                <div>
-                                  <p>Precio por Boleto:</p>
-                                  <h1 class="text-5xl font-bold text-blue-500 font-outtfit">$540</p>
+                      @if (count($trips) == 0)
+                        <p class="text-center mt-5 text-gray-500 font-bold">
+                          Sin Viajes para Hoy
+                        </p>
+                      @else 
+                        <div class="overflow-y-scroll h-96 p-1 bg-white rounded-lg shadow-md">
+                          @foreach ($trips as $trip)
+                            <div class="w-full p-5 border-2 border-solid border-blue-500 flex gap-5 rounded-lg my-5">
+                              <div class="w-2/3">
+                                <h1 class="text-2xl font-bold text-blue-500 font-outtfit">
+                                  Datos del Viaje
+                                </h1>
+                                <div class="flex gap-10 mt-2">
+                                  <p>
+                                    <span class="font-bold text-blue-500 font-outtfit">Origen: </span>
+                                    <br>
+                                    {{$trip->originTerminal->name}}
+                                  </p>
+                                  <p>
+                                    <span class="font-bold text-blue-500 font-outtfit">Destino: </span>
+                                    <br>
+                                    {{$trip->destinationTerminal->name}}
+                                  </p>
                                 </div>
-                                <div class="mt-10">
-                                  <div class="flex justify-center gap-2 mt-3">
-                                    <a href="{{route("client.trips.buy", $trip->id)}}" class="p-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600">
-                                      Comprar Boletos
-                                    </a>
+                                <div class="flex gap-10 mt-2">
+                                  <p>
+                                    <span class="font-bold text-blue-500 font-outtfit">Fecha de Salida: </span>
+                                    <br>
+                                    {{date("D-m-Y",strtotime($trip->output_date))}}
+                                  </p>
+                                  <p>
+                                    <span class="font-bold text-blue-500 font-outtfit">Hora de salida: </span>
+                                    <br>
+                                    {{$trip->output_time}}
+                                  </p>
+                                </div>
+                                <div class="flex gap-10 mt-2">
+                                  <p>
+                                    <span class="font-bold text-blue-500 font-outtfit">Fecha de Llegada: </span>
+                                    <br>
+                                    {{date("D-m-Y",strtotime($trip->arrival_date))}}
+                                  </p>
+                                  <p>
+                                    <span class="font-bold text-blue-500 font-outtfit">Hora de Llegada: </span>
+                                    <br>
+                                    {{$trip->arrival_time}}
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="w-1/3 flex justify-center">
+                                <div>
+                                  <div>
+                                    <p>Precio por Boleto:</p>
+                                    <h1 class="text-5xl font-bold text-blue-500 font-outtfit">$540</p>
+                                  </div>
+                                  <div class="mt-10">
+                                    <div class="flex justify-center gap-2 mt-3">
+                                      <a href="{{route("client.trips.buy", $trip->id)}}" class="p-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600">
+                                        Comprar Boletos
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        @endforeach
-                      </div>
-                    @endif
+                          @endforeach
+                        </div>
+                      @endif
                 </div>
                 <div class="p-3">
                 </div>
