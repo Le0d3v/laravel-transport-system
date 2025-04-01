@@ -36,35 +36,56 @@
                             <div class="w-full flex justify-center">
                                 <div class="p-3 border-2 border-blue-500 border-solid rounded-lg">
                                     <div class="mt-3 flex gap-1">
-                                        @for ($i = 1; $i < 7; $i++)
-                                            <div class="p-2 bg-green-500 rounded my-1 text-white  hover:cursor-pointer" data-seat-id="{{$i}}" onclick="toggleSeat(this)">
+                                        @foreach ($seatings_C as $seating_C)    
+                                            <div 
+                                                class="p-2 bg-green-500 rounded my-1 text-white  hover:cursor-pointer @if ($seating_C->status == 1)
+                                                    bg-red-500 hover:cursor-not-allowed
+                                                @endif" 
+                                                data-seat-id="{{$seating_C->id}}" 
+                                                data-seat-status="{{$seating_C->status}}"
+                                                onclick="toggleSeat(this)"
+                                            >
                                                 <div class="flex justify-center">
                                                     <i class="fa-solid fa-couch"></i>
                                                 </div>
-                                                <p class="text-center text-[10px]">A {{$i}}</p>
+                                                <p class="text-center text-[10px]">{{$seating_C->name}}</p>
                                             </div>
-                                        @endfor
+                                        @endforeach
                                     </div>
                                     <div class="flex gap-20">
                                         <div class="grid grid-cols-2 gap-1">
-                                            @for ($i = 1; $i < 17; $i++)
-                                                <div class="p-2 bg-green-500 rounded my-1 text-white seat hover:cursor-pointer" data-seat-id="{{$i}}" onclick="toggleSeat(this)">
-                                                    <div class="flex justify-center text-sm">
-                                                        <i class="fa-solid fa-couch"></i>
-                                                    </div>
-                                                    <p class="text-center text-[10px]">A {{$i}}</p>
+                                            @foreach ($seatings_B as $seating_B)    
+                                            <div 
+                                                class="p-2 bg-green-500 rounded my-1 text-white  hover:cursor-pointer 
+                                                    @if ($seating_B->status == 1)
+                                                        bg-red-500 hover:cursor-not-allowed
+                                                    @endif" 
+                                                data-seat-id="{{$seating_B->id}}" 
+                                                data-seat-status="{{$seating_B->status}}"
+                                                onclick="toggleSeat(this)"
+                                            >
+                                                <div class="flex justify-center">
+                                                    <i class="fa-solid fa-couch"></i>
                                                 </div>
-                                            @endfor
+                                                <p class="text-center text-[10px]">{{$seating_B->name}}</p>
+                                            </div>
+                                        @endforeach
                                         </div>
                                         <div class="grid grid-cols-2 gap-1">
-                                            @for ($i = 1; $i < 17; $i++)
-                                                <div class="p-2 bg-green-500 rounded my-1 text-white seat hover:cursor-pointer" data-seat-id="{{$i}}" onclick="toggleSeat(this)">
-                                                    <div class="flex justify-center">
-                                                        <i class="fa-solid fa-couch"></i>
-                                                    </div>
-                                                    <p class="text-center text-[10px]">A {{$i}}</p>
+                                            @foreach ($seatings_A as $seating_A)    
+                                            <div 
+                                                class="p-2 bg-green-500 rounded my-1 text-white  hover:cursor-pointer @if ($seating_A->status == 1)
+                                                    bg-red-500 hover:cursor-not-allowed
+                                                @endif" 
+                                                data-seat-id="{{$seating_A->id}}" 
+                                                onclick="toggleSeat(this)"
+                                            >
+                                                <div class="flex justify-center">
+                                                    <i class="fa-solid fa-couch"></i>
                                                 </div>
-                                            @endfor
+                                                <p class="text-center text-[10px]">{{$seating_A->name}}</p>
+                                            </div>
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -78,12 +99,14 @@
                         <input type="hidden" value="{{$trip->id}}" id="id-trip">
                         <div id="map" class="w-full rounded-lg shadow-lg h-72"></div>
                         <ul class="list-none p-4 bg-white rounded-lg mt-1 shadow-md" id="route-info"></ul>
+                        <div class="mt-5 p-5 shadow rounded flex gap-10">
+                            <div class="flex justify-end">
+                                <button onclick="reserveSeats()" class="mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
+                                    Reservar Asiento(s)
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="mt-5 p-5 shadow rounded flex gap-10">
-                <div>
-                    <button onclick="reserveSeats()" class="mt-4 bg-blue-500 text-white p-2 rounded">Reservar Asientos</button>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Trip;
 use App\Models\Truck;
+use App\Models\Seating;
 use App\Models\Terminal;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,44 @@ class TripController extends Controller
             'seatings' => $truck->capacity,
             'availables' => $truck->availables,
         ]);
+
+        $asientos_A = [];
+        for ($i = 1; $i <= 16; $i++) {
+            $asientos_A[] = [
+                'name' => 'A' . $i,
+                'status' => 0,
+                'trip_id' => $trip->id,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+        }
+
+        $asientos_B = [];
+        for ($i = 1; $i <= 16; $i++) {
+            $asientos_B[] = [
+                'name' => 'B' . $i,
+                'status' => 0,
+                'trip_id' => $trip->id,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+        }
+
+        $asientos_C = [];
+        for ($i = 1; $i <= 6; $i++) {
+            $asientos_C[] = [
+                'name' => 'C' . $i,
+                'status' => 0,
+                'trip_id' => $trip->id,
+                'created_at' => now(),
+                'updated_at' => now()
+            ];
+        }
+
+        Seating::insert($asientos_C);
+        Seating::insert($asientos_B);
+        Seating::insert($asientos_A);
+
 
         return redirect(route('trips', absolute: false));
     }
