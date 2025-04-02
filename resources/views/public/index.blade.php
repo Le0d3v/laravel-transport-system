@@ -222,9 +222,9 @@
                         a las ${viaje.output_time}
                       </p>
                       <p>
-                        Precio: 
+                        Precio por Boleto: 
                         <span class="text-blue-500 font-bold">
-                          $540
+                          $${viaje.price}
                         </span> 
                       </p>
                     </div>

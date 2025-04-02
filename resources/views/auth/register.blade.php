@@ -11,6 +11,13 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        <!-- Telephone -->
+        <div class="mt-4">
+            <x-input-label for="telephone" :value="__('Número de Teléfono (10 digitos)')" />
+            <x-text-input id="telephone" class="block mt-1 w-full" type="telephone" name="telephone" :value="old('telephone')" required  placeholder="ejemplo@correo.com"/>
+            <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Correo Elecrtónico')" />

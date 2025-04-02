@@ -38,9 +38,10 @@
                                     <div class="mt-3 flex gap-1">
                                         @foreach ($seatings_C as $seating_C)    
                                             <div 
-                                                class="p-2 bg-green-500 rounded my-1 text-white  hover:cursor-pointer @if ($seating_C->status == 1)
-                                                    bg-red-500 hover:cursor-not-allowed
-                                                @endif" 
+                                                class="p-2 bg-green-500 rounded my-1 text-white cursor-pointer 
+                                                    @if ($seating_C->status === 1)
+                                                        hover:cursor-not-allowed bg-red-500
+                                                    @endif"
                                                 data-seat-id="{{$seating_C->id}}" 
                                                 data-seat-status="{{$seating_C->status}}"
                                                 onclick="toggleSeat(this)"
@@ -56,9 +57,9 @@
                                         <div class="grid grid-cols-2 gap-1">
                                             @foreach ($seatings_B as $seating_B)    
                                             <div 
-                                                class="p-2 bg-green-500 rounded my-1 text-white  hover:cursor-pointer 
-                                                    @if ($seating_B->status == 1)
-                                                        bg-red-500 hover:cursor-not-allowed
+                                                class="p-2 bg-green-500 rounded my-1 text-white cursor-pointer 
+                                                    @if ($seating_B->status === 1)
+                                                        hover:cursor-not-allowed bg-red-500
                                                     @endif" 
                                                 data-seat-id="{{$seating_B->id}}" 
                                                 data-seat-status="{{$seating_B->status}}"
@@ -74,9 +75,10 @@
                                         <div class="grid grid-cols-2 gap-1">
                                             @foreach ($seatings_A as $seating_A)    
                                             <div 
-                                                class="p-2 bg-green-500 rounded my-1 text-white  hover:cursor-pointer @if ($seating_A->status == 1)
-                                                    bg-red-500 hover:cursor-not-allowed
-                                                @endif" 
+                                                class="p-2 bg-green-500 rounded my-1 text-white cursor-pointer 
+                                                    @if ($seating_A->status === 1)
+                                                        hover:cursor-not-allowed bg-red-500
+                                                    @endif"  
                                                 data-seat-id="{{$seating_A->id}}" 
                                                 onclick="toggleSeat(this)"
                                             >
@@ -99,8 +101,26 @@
                         <input type="hidden" value="{{$trip->id}}" id="id-trip">
                         <div id="map" class="w-full rounded-lg shadow-lg h-72"></div>
                         <ul class="list-none p-4 bg-white rounded-lg mt-1 shadow-md" id="route-info"></ul>
-                        <div class="mt-5 p-5 shadow rounded flex gap-10">
-                            <div class="flex justify-end">
+                        <input type="hidden" value="{{$trip->price}}" id="trip-price">
+                        <h1 class="text-center text-blue-500 font-outtfit font-bold text-xl my-1">
+                            Asientos y Pago
+                        </h1>
+                        <div class="mt-5 p-5 shadow-lg rounded flex justify-between">
+                            <div>
+                                <div>
+                                    <p class="text-[13px] text-gray-500">
+                                        Asientos Seleccionados: 
+                                        <span id="num-selected-seats" class="font-bold text-blue-500 font-outtfit text-[15px]">0</span>
+                                    </p>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="text-[13px] text-gray-500">
+                                        Total a Pagar: 
+                                        <span id="total-price" class="font-bold text-blue-500 font-outtfit text-[25px]">$0.00</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="">
                                 <button onclick="reserveSeats()" class="mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
                                     Reservar Asiento(s)
                                 </button>
@@ -217,6 +237,14 @@
                     </p>
                 </li>
             </div>
+            <div class="flex justify-between">
+                <li class="flex items-center font-bold text-gray-800 my-1">
+                    <p>
+                        Precio por Asiento: 
+                        <span class="font-bold text-blue-500 font-outtfit"> $${tripData.price}</span> 
+                    </p>
+                </li>
+            </div>
         `;
       }
   
@@ -224,6 +252,17 @@
       loadTripData(id); 
 
       let selectedSeats = [];
+      let textSeatsSelected = document.querySelector("#num-selected-seats");
+      let tripPrice = document.querySelector("#trip-price").value;
+      let amount = 0;
+      let totalPrice = document.querySelector("#total-price");
+
+      function formatearPrecio(precio) {
+        let precioFormateado = precio.toFixed(2);
+        let partes = precioFormateado.split('.');
+        partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return partes.join('.');
+      }
 
     function toggleSeat(element) {
         const seatId = element.getAttribute('data-seat-id');
@@ -234,13 +273,19 @@
             element.classList.add('bg-green-500');
             selectedSeats = selectedSeats.filter(id => id !== seatId);
             console.log(selectedSeats);
+            textSeatsSelected.textContent = selectedSeats.length;
+            amount = tripPrice * selectedSeats.length
+            totalPrice.textContent = "$" + formatearPrecio(amount);
+            
         } else {
             // Seleccionar el asiento
             element.classList.remove('bg-green-500');
             element.classList.add('bg-blue-500');
             selectedSeats.push(seatId);
             console.log(selectedSeats);
-            
+            textSeatsSelected.textContent = selectedSeats.length;
+            amount = tripPrice * selectedSeats.length
+            totalPrice.textContent = "$" + formatearPrecio(amount);
         }
     }
 

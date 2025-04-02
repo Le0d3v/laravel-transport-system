@@ -120,7 +120,7 @@
                                   <p>
                                     <span class="font-bold text-blue-500 font-outtfit">Fecha de Salida: </span>
                                     <br>
-                                    {{date("D-m-Y",strtotime($trip->output_date))}}
+                                    {{date("d-M-Y",strtotime($trip->output_date))}}
                                   </p>
                                   <p>
                                     <span class="font-bold text-blue-500 font-outtfit">Hora de salida: </span>
@@ -132,7 +132,7 @@
                                   <p>
                                     <span class="font-bold text-blue-500 font-outtfit">Fecha de Llegada: </span>
                                     <br>
-                                    {{date("D-m-Y",strtotime($trip->arrival_date))}}
+                                    {{date("d-M-Y",strtotime($trip->arrival_date))}}
                                   </p>
                                   <p>
                                     <span class="font-bold text-blue-500 font-outtfit">Hora de Llegada: </span>
@@ -145,7 +145,9 @@
                                 <div>
                                   <div>
                                     <p>Precio por Boleto:</p>
-                                    <h1 class="text-5xl font-bold text-blue-500 font-outtfit">$540</p>
+                                    <h1 class="text-4xl font-bold text-blue-500 font-outtfit">
+                                      ${{number_format($trip->price, 2, ".", ',')}}
+                                    </p>
                                   </div>
                                   <div class="mt-10">
                                     <div class="flex justify-center gap-2 mt-3">
@@ -221,9 +223,9 @@
                           a las ${viaje.output_time}
                         </p>
                         <p>
-                          Precio: 
+                          Precio por Boleto: 
                           <span class="text-blue-500 font-bold text-xl">
-                            $540
+                            $${viaje.price}
                           </span> 
                         </p>
                       </div>

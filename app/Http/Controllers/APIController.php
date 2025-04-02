@@ -31,7 +31,8 @@ class APIController extends Controller
                                 'destination' => [
                                     'name' => $viaje->destinationTerminal->name
                                 ],
-                                'output_time' => $viaje->output_time
+                                'output_time' => $viaje->output_time,
+                                "price" => (string) $viaje->price
                             ];
                         }),
                         'status' => 200
@@ -57,7 +58,8 @@ class APIController extends Controller
                 'lng' => $trip->destinationTerminal->lng,
             ], 
             'output_date' => $trip->output_date,
-            'output_time' => $trip->output_time
+            'output_time' => $trip->output_time,
+            'price' => $trip->price,
         ]);
              
     }
