@@ -64,10 +64,16 @@
             <p class="text-center text-gray-500 text-md mb-3">Regístrese en Busify llenando el siguiente formulario</p>
             <form method="POST" action="{{ route('register') }}" autocomplete="off">
                 @csrf
-                <div>
+                <div class="mt-1">
                     <x-input-label for="name" :value="__('Nombre')" />
                     <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus placeholder="Incluir mínimo un apellido"/>
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                </div>
+                <!-- Email Address -->
+                <div>
+                    <x-input-label for="telephone" :value="__('Telephone')" />
+                    <x-text-input id="telephone" class="block mt-1 w-full" type="tel" name="telephone" :value="old('telephone')" required autofocus placeholder="1234567890"/>
+                    <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
                 </div>
                 <div class="mt-4">
                     <x-input-label for="email" :value="__('Correo Electrónico')" />
@@ -114,7 +120,7 @@
         
             <form method="POST" action="{{ route('password.email') }}" autocomplete="off">
                 @csrf
-            
+
                 <!-- Email Address -->
                 <div>
                     <x-input-label for="email" :value="__('Email')" />
