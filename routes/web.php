@@ -84,6 +84,9 @@ Route::middleware("auth")->group(function(){
 Route::get("/dashboard/show-trips", [ClientController::class, "index"])->name("client.trips.index");
 route::get("/dashboard/buy-trip/{id}", [ClientController::class, "buy"])->name("client.trips.buy");
 route::get("/dashboard/my-trips", [ClientController::class, "get"])->name("client.trips.get");
+route::get("/dashboard/get-ticket/{id}", [ClientController::class, "ticket"])->name("client.trips.ticket");
+route::get("/dashboard/trip/destroy/{id}", [ClientController::class, "destroy"])->name("client.trips.destroy");
+
 
 // Apis
 Route::post('/buscar-viaje', [APIController::class, 'searchTrip'])->name('search.trip');

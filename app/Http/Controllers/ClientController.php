@@ -8,6 +8,7 @@ use App\Models\Ticket;
 use App\Models\Seating;
 use App\Models\Terminal;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
@@ -51,5 +52,19 @@ class ClientController extends Controller
         return view("user.trips.my-trips", [
             "tickets" => $tickets
         ]);
+    }
+
+    public function ticket($id) {
+        $ticket = Ticket::findOrFail($id);
+
+        $pdf = Pdf::loadView('user.tickets.ticket', compact('ticket'));
+
+        return $pdf->stream('ticket_'.$ticket->trip->id.'.pdf');
+    }
+
+    public function destroy($id) {
+        $ticket = Ticket::find($id);
+        $ticket->delete();
+        return redirect(route("client.trips.get", absolute: false));
     }
 }
