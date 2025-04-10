@@ -5,7 +5,7 @@
     </a>
     <nav class="flex gap-10 justify-center">  
       <a href="/" class="text-white hover:text-gray-200 transition font-outtfit">
-        Boletos de Autobus
+        Boletos de Autobús
       </a>
       <a href="{{route("about")}}" class="text-white hover:text-gray-200 transition font-outtfit">
         Sobre Nosotros

@@ -83,10 +83,12 @@ Route::middleware("auth")->group(function(){
 // Client
 Route::get("/dashboard/show-trips", [ClientController::class, "index"])->name("client.trips.index");
 route::get("/dashboard/buy-trip/{id}", [ClientController::class, "buy"])->name("client.trips.buy");
+route::get("/dashboard/my-trips", [ClientController::class, "get"])->name("client.trips.get");
 
 // Apis
 Route::post('/buscar-viaje', [APIController::class, 'searchTrip'])->name('search.trip');
 route::get("/get-trip/{id}", [APIController::class, "getTrip"])->name("trips.trip.get");
+Route::post('/comprar-boletos', [APIController::class, 'buy'])->name('client.trips.buy');
 
 
 Route::get('/two-factor/verify', [TwoFactorController::class, 'showVerifyForm'])->name('two-factor.verify');

@@ -121,7 +121,10 @@
                                 </div>
                             </div>
                             <div class="">
-                                <button onclick="reserveSeats()" class="mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
+                                <input type="hidden" name="user_id" value="{{$user->id}}" id="data_user">
+                                <input type="hidden" name="trip_id" value="{{$trip->id}}" id="data_trip">
+                                <input type="hidden" name="amount" value="0" id="data_amount">
+                                <button onclick="buyTrip()" class="mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
                                     Reservar Asiento(s)
                                 </button>
                             </div>
@@ -131,7 +134,6 @@
             </div>
         </div>
     </div>
-  
     @push("script")
     <script>
         // Variables para Mapa
@@ -289,25 +291,33 @@
         }
     }
 
-    function reserveSeats() {
-        fetch('/api/reservar-asientos', {
-            method: 'POST',
+    async function buyTrip() {
+        let dataUser = document.querySelector("#data_user").value;
+        let dataTrip = document.querySelector("#data_trip").value;
+        let dataAmount = document.querySelector("#data_amount").value;
+        dataAmount = totalPrice.textContent;
+
+        try {
+            const formData = new FormData();
+            formData.append("user_id", dataUser);
+            formData.append("trip_id", dataTrip);
+            formData.append("amount", dataAmount);
+
+            const response = await fetch("/comprar-boletos", {
+            method: "POST",
+            body: formData,
             headers: {
-                'Content-Type': 'application/json',
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
             },
-            body: JSON.stringify({ seats: selectedSeats }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Asientos reservados:', data);
-            // Aquí puedes agregar lógica para mostrar un mensaje de éxito o redirigir
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+            });
+
+            const data = await response.json();
+            window.location.href = '/dashboard/my-trips';
+        } catch (error) {
+            console.log(error);
+        }
     }
-     
     </script>
     @endpush
   </x-app-layout>
-  

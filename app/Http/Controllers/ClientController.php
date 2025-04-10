@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Trip;
+use App\Models\Ticket;
 use App\Models\Seating;
 use App\Models\Terminal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -39,6 +41,15 @@ class ClientController extends Controller
             "seatings_A" => $seatings_A,
             "seatings_B" => $seatings_B,
             "seatings_C" => $seatings_C,
+            "user" => Auth::user()
+        ]);
+    }
+
+    public function get() {
+        $tickets = Ticket::where("user_id", Auth::user()->id)->get();
+
+        return view("user.trips.my-trips", [
+            "tickets" => $tickets
         ]);
     }
 }

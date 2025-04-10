@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Trip;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class APIController extends Controller
@@ -62,5 +63,18 @@ class APIController extends Controller
             'price' => $trip->price,
         ]);
              
+    }
+
+    public function buy(Request $request) {
+        Ticket::create([
+            "user_id" => $request->input("user_id"),
+            "trip_id" => $request->input("trip_id"),
+            "amount" => $request->input("amount")
+        ]);
+
+        return response()->json([
+            "status" => 200,
+            "ok" => "ok",
+        ]);
     }
 }
